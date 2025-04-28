@@ -44,7 +44,7 @@ $result = $conn->query("SELECT level, bonus_amount, awarded_at FROM bonus_wallet
   <meta name="description" content="" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="../assets/img/favicon/logo.jpg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
