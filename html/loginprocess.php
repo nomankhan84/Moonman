@@ -20,10 +20,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $username;
             $_SESSION['status'] = $status;
 
+            // Check if login already recorded for today
+            $today = date('Y-m-d');
+            $check_stmt = $conn->prepare("SELECT id FROM user_login_records WHERE user_id = ? AND login_date = ?");
+            $check_stmt->bind_param("is", $user_id, $today);
+            $check_stmt->execute();
+            $check_stmt->store_result();
+
+            if ($check_stmt->num_rows == 0) {
+                // No login recorded today, insert new record
+                $insert_stmt = $conn->prepare("INSERT INTO user_login_records (user_id, login_date) VALUES (?, ?)");
+                $insert_stmt->bind_param("is", $user_id, $today);
+                $insert_stmt->execute();
+                $insert_stmt->close();
+            }
+            $check_stmt->close();
+
             $_SESSION['login_message'] = "Login successful! Redirecting...";
             $_SESSION['redirect_url'] = ($user_id == 3) ? 'adminindex.php' : 'index.php';
 
-            header("Location: login.php"); // Go back to login page (index.php)
+            header("Location: login.php");
             exit();
         } else {
             $_SESSION['login_message'] = "Incorrect password.";

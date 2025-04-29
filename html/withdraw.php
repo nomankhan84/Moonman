@@ -72,20 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   if (empty($errors)) {
-    // Deduct the amount based on the selected wallet
-    if ($wallet_type === 'main_wallet') {
-      $new_balance = $main_wallet_balance - $amount;
-      $update_balance_stmt = $conn->prepare("UPDATE wallet SET balance = ? WHERE user_id = ?");
-      $update_balance_stmt->bind_param("di", $new_balance, $user_id);
-      $update_balance_stmt->execute();
-      $update_balance_stmt->close();
-    } elseif ($wallet_type === 'bonus_wallet') {
-      $new_balance = $bonus_wallet_balance - $amount;
-      $update_balance_stmt = $conn->prepare("UPDATE user_bonus_wallet SET balance = ? WHERE user_id = ?");
-      $update_balance_stmt->bind_param("di", $new_balance, $user_id);
-      $update_balance_stmt->execute();
-      $update_balance_stmt->close();
-    }
 
     // Insert withdrawal request
     $ins = $conn->prepare("INSERT INTO withdrawal_requests (user_id, amount, payment_method, status, wallet_type) VALUES (?, ?, ?, 'pending', ?)");

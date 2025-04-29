@@ -221,51 +221,58 @@ if ($result && mysqli_num_rows($result) > 0) {
            <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == 3): ?>
            <li class="menu-header small text-uppercase"><span class="menu-header-text">Admin</span></li>
           <li class="menu-item">
-            <a href="index.php" class="menu-link">
+            <a href="admin_settings.php" class="menu-link">
               <i class="menu-icon tf-icons bx bxs-credit-card"></i>
               <div data-i18n="Analytics">Booking Amount</div>
             </a>
           </li>
 
           <li class="menu-item">
-            <a href="index.php" class="menu-link">
+            <a href="admin_incomelevels.php" class="menu-link">
               <i class="menu-icon tf-icons bx bxs-map-pin"></i>
               <div data-i18n="Analytics">Income Percentage</div>
             </a>
           </li>
 
           <li class="menu-item">
-            <a href="index.php" class="menu-link">
+            <a href="admin_bonuslevels.php" class="menu-link">
               <i class="menu-icon tf-icons bx bx-map-pin"></i>
               <div data-i18n="Analytics">Bonus Percentage</div>
             </a>
           </li>
 
           <li class="menu-item">
-            <a href="index.php" class="menu-link">
+            <a href="admin_viewpayments.php" class="menu-link">
               <i class="menu-icon tf-icons bx bx-money"></i>
               <div data-i18n="Analytics">Payment requests</div>
             </a>
           </li>
 
           <li class="menu-item">
-            <a href="index.php" class="menu-link">
+            <a href="admin_users.php" class="menu-link">
               <i class="menu-icon tf-icons bx bx-data"></i>
               <div data-i18n="Analytics">User Database</div>
             </a>
           </li>
 
           <li class="menu-item">
-            <a href="index.php" class="menu-link">
+            <a href="admin_viewpaymenthistory.php" class="menu-link">
               <i class="menu-icon tf-icons bx bx-history"></i>
               <div data-i18n="Analytics">Booking History</div>
             </a>
           </li>
 
           <li class="menu-item">
-            <a href="index.php" class="menu-link">
+            <a href="admin_notice.php" class="menu-link">
               <i class="menu-icon tf-icons bx bx-notepad"></i>
               <div data-i18n="Analytics">Notice</div>
+            </a>
+          </li>
+
+          <li class="menu-item">
+            <a href="admin_managewithdrawal.php" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-notepad"></i>
+              <div data-i18n="Analytics">Manage withdrawal</div>
             </a>
           </li>
           <?php endif; ?>
@@ -459,7 +466,10 @@ if ($result && mysqli_num_rows($result) > 0) {
         </div>
     </div>
 <?php endif; ?>
+
               </div>
+              
+              
               <div class="col-lg-4 col-md-4 order-1">
                 <div class="row">
                   <div class="col-lg-6 col-md-12 col-6 mb-4">

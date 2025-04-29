@@ -1,5 +1,5 @@
 <?php
-require 'html/db_conn.php';
+require 'db_conn.php';
 
 /**
  * Generate a unique referral code of the form "MM123456"
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'], $_POST['am
     $update_payment->close();
 
     // Redirect back with success message
-    header("Location: admin_payments.php?success=1");
+    header("Location: admin_viewpayments.php?success=1");
     exit;
 }
 

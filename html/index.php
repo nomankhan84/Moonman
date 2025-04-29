@@ -216,65 +216,8 @@ if ($result && mysqli_num_rows($result) > 0) {
               <div data-i18n="Analytics">Withdraw</div>
             </a>
           </li>
-          
-           <!-- Admin -->
-           <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == 3): ?>
-           <li class="menu-header small text-uppercase"><span class="menu-header-text">Admin</span></li>
-          <li class="menu-item">
-            <a href="index.php" class="menu-link">
-              <i class="menu-icon tf-icons bx bxs-credit-card"></i>
-              <div data-i18n="Analytics">Booking Amount</div>
-            </a>
-          </li>
 
-          <li class="menu-item">
-            <a href="index.php" class="menu-link">
-              <i class="menu-icon tf-icons bx bxs-map-pin"></i>
-              <div data-i18n="Analytics">Income Percentage</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="index.php" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-map-pin"></i>
-              <div data-i18n="Analytics">Bonus Percentage</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="index.php" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-money"></i>
-              <div data-i18n="Analytics">Payment requests</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="index.php" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-data"></i>
-              <div data-i18n="Analytics">User Database</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="index.php" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-history"></i>
-              <div data-i18n="Analytics">Booking History</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="index.php" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-notepad"></i>
-              <div data-i18n="Analytics">Notice</div>
-            </a>
-          </li>
-          <?php endif; ?>
-           <!-- /Admin -->
-
-
-          
           <!-- Misc -->
-          <?php if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 3): ?>
           <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
           
           <li class="menu-item">
@@ -289,7 +232,6 @@ if ($result && mysqli_num_rows($result) > 0) {
               <div data-i18n="Documentation">Our Website</div>
             </a>
           </li>
-          <?php endif; ?>
         </ul>
       </aside>
       <!-- / Menu -->
@@ -633,7 +575,7 @@ if ($result && mysqli_num_rows($result) > 0) {
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script>
     function copyReferralLink(referralCode) {
-        const referralLink = `/localhost/moonman/index.php?ref=${referralCode}`;
+        const referralLink = `/localhost/moonman/html/register.php?ref=${referralCode}`;
         const shareBtn = document.getElementById('shareReferralBtn');
 
         navigator.clipboard.writeText(referralLink).then(() => {
